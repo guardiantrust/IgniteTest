@@ -16,28 +16,18 @@
             </list>
         </property>
         <!-- Enabling Apache Ignite native persistence. -->
-  <property name="dataStorageConfiguration">
-    <bean class="org.apache.ignite.configuration.DataStorageConfiguration">
-      <property name="defaultDataRegionConfiguration">
-        <bean class="org.apache.ignite.configuration.DataRegionConfiguration">
-          <property name="persistenceEnabled" value="true"/>
-        </bean>
-      </property>
-    </bean>
-  </property>
-  <!-- Redefining maximum memory size for the cluster node usage. -->  
-<property name="dataStorageConfiguration">
-  <bean class="org.apache.ignite.configuration.DataStorageConfiguration">
-    <!-- Redefining the default region's settings -->
-    <property name="defaultDataRegionConfiguration">
-      <bean class="org.apache.ignite.configuration.DataRegionConfiguration">
-        <property name="name" value="Default_Region"/>
-        <!-- Setting the size of the default region to 500MB. -->
-        <property name="maxSize" value="#{750 * 1024 * 1024}"/>
-      </bean>
-    </property>
-  </bean>
-</property>
+        <property name="dataStorageConfiguration">
+            <bean class="org.apache.ignite.configuration.DataStorageConfiguration">
+            <property name="defaultDataRegionConfiguration">
+                <bean class="org.apache.ignite.configuration.DataRegionConfiguration">
+                <property name="persistenceEnabled" value="true"/>
+                <property name="name" value="default_cache"/>
+                <!-- Setting the size of the default region to 500MB. -->
+                <property name="maxSize" value="#{750 * 1024 * 1024}"/>
+                </bean>
+            </property>
+            </bean>
+        </property>
 
         <!-- Explicitly configure TCP discovery SPI to provide list of initial nodes. -->
         <property name="discoverySpi">
