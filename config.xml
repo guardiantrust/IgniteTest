@@ -7,7 +7,7 @@
             <bean class="org.apache.ignite.configuration.CacheConfiguration">
                <property name="name" value="default" />
                <property name="atomicityMode" value="ATOMIC" />
-               <property name="backups" value="1" />
+               <property name="backups" value="2" />
             </bean>
          </list>
       </property>
@@ -17,7 +17,6 @@
             <property name="defaultDataRegionConfiguration">
                <bean class="org.apache.ignite.configuration.DataRegionConfiguration">
                   <property name="persistenceEnabled" value="true" />
-                  <property name="name" value="default_cache" />
                   <!-- Setting the size of the default region to 500MB. -->
                   <property name="maxSize" value="#{750 * 1024 * 1024}" />
                </bean>
