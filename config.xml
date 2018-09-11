@@ -2,11 +2,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="         http://www.springframework.org/schema/beans         http://www.springframework.org/schema/beans/spring-beans.xsd">
    <bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
       <!-- Enabling Apache Ignite native persistence. -->
+      <property name="cacheConfiguration">
+            <list>
+                <!-- Partitioned cache example configuration (Atomic mode). -->
+                <bean class="org.apache.ignite.configuration.CacheConfiguration">
+                    <property name="name" value="default"/>
+                    <property name="atomicityMode" value="ATOMIC"/>
+                    <property name="backups" value="1"/>
+                    <property name="initialSize" value=""#{350 * 1024 * 1024}"">
+                </bean>
+            </list>
+        </property>
+
       <property name="dataStorageConfiguration">
          <bean class="org.apache.ignite.configuration.DataStorageConfiguration">
             <property name="defaultDataRegionConfiguration">
                <bean class="org.apache.ignite.configuration.DataRegionConfiguration">
-                
+                <property name="name" value="default"/>
                   <property name="persistenceEnabled" value="true" />
                   <!-- Setting the size of the default region to 500MB. -->
                   <property name="maxSize" value="#{750 * 1024 * 1024}" />
