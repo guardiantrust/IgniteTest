@@ -9,7 +9,8 @@
                     <property name="name" value="default"/>
                     <property name="atomicityMode" value="ATOMIC"/>
                     <property name="backups" value="1"/>
-                    <property name="initialSize" value=""#{350 * 1024 * 1024}"">
+                    <property name="initSize" value="#{350 * 1024 * 1024}">
+                    <property name="maxSize" value="#{750 * 1024 * 1024}" />
                 </bean>
             </list>
         </property>
