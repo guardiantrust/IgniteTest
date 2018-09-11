@@ -8,7 +8,7 @@
                <bean class="org.apache.ignite.configuration.DataRegionConfiguration">
                 <property name="name" value="default"/>
                   <property name="persistenceEnabled" value="true" />
-                  <property name="initialSize" value="#{100 * 1024 * 1024}"/>
+                 
                 <property name="maxSize" value="#{500 * 1024 * 1024}"/>
                </bean>
             </property>
